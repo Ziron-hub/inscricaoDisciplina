@@ -1,5 +1,3 @@
-OfertaDisciplina = module.require('./OfertaDisciplina');
-
 class Periodo {
     #ofertasDisciplina;
     #ano;

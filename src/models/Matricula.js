@@ -1,6 +1,3 @@
-const Periodo = require('./Periodo');
-const Curso = require('./Curso');
-
 class Matricula {
     #dataMatricula;
     #curso;
@@ -9,7 +6,7 @@ class Matricula {
     #ira;
     #perfil;
     #periodo;
-    #listObserversState;
+    #listaObservadoresEstado;
 
     constructor(dataMatricula, curso, estadoMatricula, ra, ira, perfil, periodo) {
         this.#dataMatricula = dataMatricula;
@@ -19,63 +16,107 @@ class Matricula {
         this.#ira = ira;
         this.#perfil = perfil;
         this.#periodo = periodo;
-        this.#listObserversState = [];
+        this.#listaObservadoresEstado = [];
     }
+
     get dataMatricula() {
         return this.#dataMatricula;
     }
+
     get curso() {
         return this.#curso;
     }
+
     get estadoMatricula() {
         return this.#estadoMatricula;
     }
+
     get ra() {
         return this.#ra;
     }
+
     get ira() {
         return this.#ira;
     }
+
     get perfil() {
         return this.#perfil;
     }
+
     get periodo() {
         return this.#periodo;
     }
+
     set dataMatricula(dataMatricula) {
         this.#dataMatricula = dataMatricula;
     }
+
     set curso(curso) {
         this.#curso = curso;
     }
+
     set estadoMatricula(estadoMatricula) {
         this.#estadoMatricula = estadoMatricula;
     }
+
     set ra(ra) {
         this.#ra = ra;
     }
+
     set ira(ira) {
         this.#ira = ira;
     }
+
     set perfil(perfil) {
         this.#perfil = perfil;
     }
+
     set periodo(periodo) {
         this.#periodo = periodo;
     }
-    addObserverState(observer) {
-        this.#listObserversState.push(observer);
+
+    adcEstadoObservador(observador) {
+        this.#listaObservadoresEstado.push(observador);
     }
-    notifyObserversState() {
-        this.#listObserversState.forEach(observer => {
-            observer.update(this);
-        }
+
+    notificarObservadoresEstado() {
+        this.#listaObservadoresEstado.forEach(observador => {
+                observador.update(this);
+            }
         );
     }
-    removeObserverState(observer) {
-        this.#listObserversState.splice(this.#listObserversState.indexOf(observer), 1);
+
+    removerObservadorEstado(observador) {
+        this.#listaObservadoresEstado.splice(this.#listaObservadoresEstado.indexOf(observador), 1);
     }
 
+    trancarMatricula() {
+        this.estadoMatricula.trancarMatricula(this);
+    }
 
+    reativarMatricula() {
+        this.estadoMatricula.reativarMatricula(this);
+    }
 
+    suspenderMatricula() {
+        this.estadoMatricula.suspenderMatricula(this);
+    }
+
+    concluirMatricula() {
+        this.estadoMatricula.concluirMatricula(this);
+    }
+
+    desativarMatricula() {
+        this.estadoMatricula.desativarMatricula(this);
+    }
+
+    afastarMatricula() {
+        this.estadoMatricula.afastarMatricula(this);
+    }
+
+    jubilarMatricula() {
+        this.estadoMatricula.jubilarMatricula(this);
+    }
 }
+
+module.exports = Matricula;
