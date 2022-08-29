@@ -12,6 +12,10 @@ class Indisponivel{
       this.inscricaoIMP.setState(this.inscricaoIMP.primeiraFase)
     }
 
+    inscreveAluno(aluno, disciplina){
+
+    }
+    
     static getInstance() {
         return this._instance;
     }

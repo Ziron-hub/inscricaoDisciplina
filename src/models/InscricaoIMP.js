@@ -4,17 +4,31 @@ const SegundaFase = require('./../statePatterns/inscricaoState/SegundaFase')
 
 
 class InscricaoIMP{
+    #primeiraFase;
+    #segundaFase;
+    #indisponivel;
+    #currentState;
+    #observers;
     constructor() {
-      this.primeiraFase = new PrimeiraFase(this);
-      this.segundaFase = new SegundaFase(this);
-      this.indisponivel = new Indisponivel(this);
-      this.currentState = this.indisponivel
-      this.observers = []
+      this.#primeiraFase = new PrimeiraFase(this);
+      this.#segundaFase = new SegundaFase(this);
+      this.#indisponivel = new Indisponivel(this);
+      this.#currentState = this.indisponivel
+      this.#observers = []
+    }
+
+    get currentState(){
+      return this.#currentState
+    }
+
+    get observers(){
+      return this.#observers
     }
   
     setState(newState) {
       this.currentState = newState
     }
+
   
     mudarFase() {
         this.currentState.mudarFase()
@@ -40,8 +54,9 @@ class InscricaoIMP{
     }
 
     notifyAllObservers(){
-        for(let o of this.observers)
-            console.log(o.name, "foi notificado")
+        for(let o of this.observers){
+            o.update()
+        }
     }
 
   }

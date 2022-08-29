@@ -12,6 +12,10 @@ class PrimeiraFase{
       this.inscricaoIMP.setState(this.inscricaoIMP.segundaFase)
     }
 
+    inscreveAluno(aluno, disciplina){
+
+    }
+
     static getInstance() {
         return this._instance;
     }
