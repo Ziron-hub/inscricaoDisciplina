@@ -4,14 +4,12 @@ class Disciplina {
     #nome;
     #codigo;
     #numero_vagas;
-    #deferidos;
     #curso;
     #perfil;
-    constructor(nome, codigo, numero_vagas, deferidos, curso ,perfil) {
+    constructor(nome, codigo, numero_vagas, curso ,perfil) {
         this.#nome = nome;
         this.#codigo = codigo;
         this.#numero_vagas = numero_vagas;
-        this.#deferidos = deferidos;
         this.#curso = curso;
         this.#perfil = perfil;
     }
@@ -23,9 +21,6 @@ class Disciplina {
     }
     get numero_vagas() {
         return this.#numero_vagas;
-    }
-    get deferidos() {
-        return this.#deferidos;
     }
     get curso() {
         return this.#curso;
@@ -42,16 +37,12 @@ class Disciplina {
     set numero_vagas(numero_vagas) {
         this.#numero_vagas = numero_vagas;
     }
-    set deferidos(deferidos) {
-        this.#deferidos = deferidos;
-    }
     set curso(curso) {
         this.#curso = curso;
     }
     set perfil(perfil) {
         this.#perfil = perfil;
     }
-
 
 
 
