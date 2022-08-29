@@ -16,3 +16,5 @@ class Aluno extends Usuario {
     }
 
 }
+
+module.exports = Aluno;

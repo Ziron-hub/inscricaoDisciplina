@@ -15,3 +15,5 @@ class PrimeiraFaseListener extends FaseInscricaoListener{
     }
 
 }
+
+module.exports = PrimeiraFaseListener;

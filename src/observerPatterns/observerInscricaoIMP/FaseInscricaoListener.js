@@ -17,3 +17,5 @@ class FaseInscricaoListener{
         console.log(this.nome, "Foi notificado")
     }
 }
+
+module.exports = FaseInscricaoListener;
