@@ -9,6 +9,7 @@ class InscricaoIMP{
       this.segundaFase = new SegundaFase(this);
       this.indisponivel = new Indisponivel(this);
       this.currentState = this.indisponivel
+      this.observers = []
     }
   
     setState(newState) {
@@ -17,7 +18,24 @@ class InscricaoIMP{
   
     mudarFase() {
         this.currentState.mudarFase()
-      }
+    }
+
+    atualizarPerfil(aluno){
+
+    }
+
+    defereAlunosAutomaticamente(){
+
+    }
+
+    addObserver(observer){
+
+    }
+
+    removeObserver(){
+        
+    }
+
   }
 
 module.exports = InscricaoIMP
