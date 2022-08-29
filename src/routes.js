@@ -1,9 +1,9 @@
 const express = require('express')
 
-const disciplinaController = require('./controllers/disciplinaController')
+const DisciplinaController = require('./controllers/DisciplinaController')
 
 const routes = express.Router()
 
-routes.get('/disciplina', disciplinaController.create)
+routes.get('/disciplina', DisciplinaController.create)
 
 module.exports = routes

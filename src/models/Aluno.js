@@ -15,5 +15,4 @@ class Aluno extends Usuario {
         this.#matricula = matricula;
     }
 
-
 }
