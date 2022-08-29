@@ -9,3 +9,5 @@ class AdmDepartamento extends Usuario {
         this.#cargo = cargo;
     }
 }
+
+module.exports = AdmDepartamento;
