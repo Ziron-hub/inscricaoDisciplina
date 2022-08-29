@@ -11,6 +11,10 @@ class SegundaFase{
       console.log('Mudando para a inscrição indiponível')
       this.inscricaoIMP.setState(this.inscricaoIMP.indisponivel)
     }
+    
+    inscreveAluno(aluno, disciplina){
+
+    }
 
     static getInstance() {
         return this._instance;
