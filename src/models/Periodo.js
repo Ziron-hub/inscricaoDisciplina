@@ -36,6 +36,11 @@ class Periodo {
         return disciplinas;
     }
 
+    get ofertasDisciplina() {
+        return this.#ofertasDisciplina;
+    }
 }
+
+
 
 module.exports = Periodo;

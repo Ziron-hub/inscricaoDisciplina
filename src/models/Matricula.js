@@ -7,8 +7,10 @@ class Matricula {
     #perfil;
     #periodo;
     #listaObservadoresEstado;
+    #aluno
 
-    constructor(dataMatricula, curso, estadoMatricula, ra, ira, perfil, periodo) {
+    constructor(aluno, dataMatricula, curso, estadoMatricula, ra, ira, perfil, periodo) {
+        this.#aluno = aluno;
         this.#dataMatricula = dataMatricula;
         this.#curso = curso;
         this.#estadoMatricula = estadoMatricula;
@@ -17,6 +19,10 @@ class Matricula {
         this.#perfil = perfil;
         this.#periodo = periodo;
         this.#listaObservadoresEstado = [];
+    }
+
+    get aluno() {
+        return this.#aluno;
     }
 
     get dataMatricula() {
