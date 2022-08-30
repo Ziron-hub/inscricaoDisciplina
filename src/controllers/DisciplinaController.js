@@ -1,9 +1,19 @@
 const Retangulo = require('../models/disciplinaModel') 
+const Usuario = require('../models/Usuario') 
+connection = require('../database/connection')
 
 module.exports = {
-    create(request, response){
-        const quadrado = new Retangulo(10, 10);
-        console.log(quadrado.calculaArea())
-        return response.send('teste')
+    async create(request, response){
+        const {ano, creditos, maxCredito, semestre} = request.body
+        id = "1"
+        await connection('periodo').insert({
+            id,
+            ano,
+            creditos,
+            maxCredito,
+            semestre,
+
+        })
+        return response.json({"teste":"deu"})
     }
 }
