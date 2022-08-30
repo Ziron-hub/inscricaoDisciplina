@@ -39,6 +39,19 @@ class Periodo {
     get ofertasDisciplina() {
         return this.#ofertasDisciplina;
     }
+    get ano() {
+        return this.#ano;
+    }
+    get semestre() {
+        return this.#semestre;
+    }
+    get creditos() {
+        return this.#creditos;
+    }
+    get maxCredito() {
+        return this.#maxCredito;
+    }
+
 }
 
 
