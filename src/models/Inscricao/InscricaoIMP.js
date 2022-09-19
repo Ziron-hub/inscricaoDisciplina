@@ -1,7 +1,6 @@
 const Indisponivel = require('./Indisponivel') 
 const PrimeiraFase = require('./PrimeiraFase') 
-const SegundaFase = require('./SegundaFase') 
-
+const SegundaFase = require('./SegundaFase')
 
 class InscricaoIMP{
     #primeiraFase;
