@@ -1,4 +1,4 @@
-const AdmDepartamento = require('./../../models/AdmDepartamento') 
+const AdmDepartamento = require('./AdmDepartamento') 
 
 class AdmDepartamentoFactory {
 

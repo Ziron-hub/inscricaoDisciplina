@@ -1,6 +1,6 @@
-const Indisponivel = require('./../statePatterns/inscricaoState/Indisponivel') 
-const PrimeiraFase = require('./../statePatterns/inscricaoState/PrimeiraFase') 
-const SegundaFase = require('./../statePatterns/inscricaoState/SegundaFase') 
+const Indisponivel = require('./Indisponivel') 
+const PrimeiraFase = require('./PrimeiraFase') 
+const SegundaFase = require('./SegundaFase') 
 
 
 class InscricaoIMP{
