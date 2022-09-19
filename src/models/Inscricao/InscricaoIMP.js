@@ -24,10 +24,13 @@ class InscricaoIMP{
       return this.#observers
     }
   
-    setState(newState) {
+    set State(newState) {
       this.currentState = newState
     }
 
+    inscreverAluno(aluno, disciplina){
+      return "Aluno Inscrito Com Sucesso"
+    }
   
     mudarFase() {
         this.currentState.mudarFase()
