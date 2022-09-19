@@ -1,5 +1,6 @@
 const Usuario = require('./Usuario');
 
+
 class Aluno extends Usuario {
     #matricula;
     constructor(cpf, nome, email, senha, matricula) {
