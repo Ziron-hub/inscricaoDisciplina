@@ -1,7 +1,7 @@
 const connection = require('../database/connection')
 const IBiblioteca = require('../IBiblioteca')
 const IGrupos = require('../IGrupos')
-
+const Aluno = require('../models/Usuario/Aluno')
 
 module.exports = {
     async indexDisciplinas(request, response){
@@ -42,9 +42,9 @@ module.exports = {
             return response.json({"status":'Não deu pra recuperar pendencia de aluno'})
         }  
 
-        /*if(pendencia.data === true){
+        if(pendencia.data === true){
             return response.json({"status":"Aluno não pode se inscrever em disciplinas com pendencia na biblioteca"})
-        }*/
+        }
 
         try{
             gruposAcad = await iGrupos.getGrupos(alunoID, token)

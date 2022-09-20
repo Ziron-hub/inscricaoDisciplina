@@ -16,6 +16,10 @@ class Aluno extends Usuario {
         this.#matricula = matricula;
     }
 
+    inscreverAlunoDisciplina(idAlunoDefDisciplina, alunoID , ofertaID, token){
+        
+    }
+
 }
 
 module.exports = Aluno;
