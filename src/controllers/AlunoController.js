@@ -56,6 +56,9 @@ module.exports = {
             return response.json({"status":'Não deu pra recuperar grupos do aluno'})
         }
 
+        if(gruposAcad.data.length > 2){
+            return response.json({"status":"Aluno não pode se inscrever em disciplina se estiver em mais de 2 grupos"})
+        }
         
         const [id] = await connection('alunosDefDisciplina').insert({
             id:idAlunoDefDisciplina,
