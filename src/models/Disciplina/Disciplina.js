@@ -1,4 +1,5 @@
-const Curso = module.require('./curso')
+const Curso = module.require('../Curso/curso')
+const connection = require('../../database/connection')
 
 class Disciplina {
     #nome;
@@ -44,6 +45,9 @@ class Disciplina {
         this.#perfil = perfil;
     }
 
+    async consultarNumVagasDisc(idDisciplina){
+        return await connection('disciplina').where('id',idDisciplina).select('numero_vagas').first();
+    }
 
 
 }
