@@ -10,4 +10,6 @@ routes.post('/disciplina', DisciplinaController.create)
 
 routes.get('/aluno/:id/disciplinas', AlunoController.indexDisciplinas)
 
+routes.post('/aluno/disciplina', AlunoController.inscreverAlunoDisciplina)
+
 module.exports = routes

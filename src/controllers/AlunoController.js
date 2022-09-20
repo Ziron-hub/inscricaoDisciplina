@@ -1,11 +1,10 @@
 const connection = require('../database/connection')
+const apiBiblioteca = require('../services/apiBiblioteca')
 
 module.exports = {
     async indexDisciplinas(request, response){
         const { id = 1 } = request.params;
         
-
-
         const matricula_id = await connection('aluno')
         .where('id', id)
         .select('matricula_id');
@@ -19,6 +18,36 @@ module.exports = {
         .count();
 
         return response.json(disciplinas['count(*)'])
+    },
+
+    async inscreverAlunoDisciplina(request, response){
+        const {idAlunoDefDisciplina, alunoID , ofertaID} = request.body
+        console.log(idAlunoDefDisciplina)
+
+        // Verifica se o aluno existe
+
+        // Verifica se oferta da disciplina existe
+
+        // Verifica pendencia com a biblioteca
+        let pendencia = null
+        try{
+            pendencia = await apiBiblioteca.get(`pessoa/pendencias/${alunoID}`)
+        }catch(err){
+            return response.json({"status":'Não deu pra recuperar pendencia de aluno'})
+        }  
+        console.log(pendencia.data)
+        if(pendencia.data === true){
+            return response.json({"status":"Aluno não pode se inscrever em disciplinas com pendencia na biblioteca"})
+        }
+        
+        const [id] = await connection('alunosDefDisciplina').insert({
+            id:idAlunoDefDisciplina,
+            aluno_id:alunoID,
+            ofertaDisciplina_id:ofertaID,
+        });
+
+        return response.json(id)
+        
     }
 
 }

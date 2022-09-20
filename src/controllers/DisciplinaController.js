@@ -1,5 +1,4 @@
-const Retangulo = require('../models/disciplinaModel') 
-const Usuario = require('../models/Usuario') 
+const Usuario = require('../models/Usuario/Usuario') 
 connection = require('../database/connection')
 
 module.exports = {
