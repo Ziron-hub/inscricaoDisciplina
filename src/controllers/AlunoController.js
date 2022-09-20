@@ -1,6 +1,6 @@
 const connection = require('../database/connection')
 const apiBiblioteca = require('../services/apiBiblioteca')
-
+const IBiblioteca = require('../IBiblioteca')
 module.exports = {
     async indexDisciplinas(request, response){
         const { id = 1 } = request.params;
@@ -23,6 +23,7 @@ module.exports = {
     async inscreverAlunoDisciplina(request, response){
         const {idAlunoDefDisciplina, alunoID , ofertaID} = request.body
         console.log(idAlunoDefDisciplina)
+        let iBiblioteca = new IBiblioteca()
 
         // Verifica se o aluno existe
 
@@ -30,8 +31,14 @@ module.exports = {
 
         // Verifica pendencia com a biblioteca
         let pendencia = null
-        try{
+        /*try{
             pendencia = await apiBiblioteca.get(`pessoa/pendencias/${alunoID}`)
+        }catch(err){
+            return response.json({"status":'Não deu pra recuperar pendencia de aluno'})
+        }  */
+
+        try{
+            pendencia = await iBiblioteca.pendenciaBibiliotecaAluno(alunoID)
         }catch(err){
             return response.json({"status":'Não deu pra recuperar pendencia de aluno'})
         }  

@@ -1,7 +1,7 @@
-import axios from "axios";
+const axios = require("axios");
 
 const bibliotecaApi = axios.create({
     baseURL: 'https://pooa-biblioteca.herokuapp.com/',
 })
 
-export default api;
+module.exports = bibliotecaApi;

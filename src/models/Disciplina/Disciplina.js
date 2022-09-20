@@ -1,4 +1,4 @@
-const Curso = module.require('../Curso/curso')
+const Curso = require('../Curso/Curso')
 const connection = require('../../database/connection')
 
 class Disciplina {

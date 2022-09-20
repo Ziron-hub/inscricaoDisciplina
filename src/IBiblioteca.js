@@ -1,15 +1,17 @@
-import aApi from './aApi';
+const aApi = require('./aApi');
 
 class IBiblioteca {
     constructor() {
 
     }
 
-    pendenciaBibiliotecaAluno(aluno){
-        return aApi.get(`/pessoa/pendencias/${aluno}`)
+    pendenciaBibiliotecaAluno(alunoID){
+        return aApi.get(`/pessoa/pendencias/${alunoID}`)
     }
 
     getToken(){
 
     }
 }
+
+module.exports = IBiblioteca
