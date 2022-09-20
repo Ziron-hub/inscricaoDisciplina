@@ -1,6 +1,6 @@
 const connection = require('../database/connection')
-const apiBiblioteca = require('../services/apiBiblioteca')
 const IBiblioteca = require('../IBiblioteca')
+
 module.exports = {
     async indexDisciplinas(request, response){
         const { id = 1 } = request.params;
