@@ -1,5 +1,6 @@
 const connection = require('../database/connection')
 const IBiblioteca = require('../IBiblioteca')
+const IGrupos = require('../IGrupos')
 
 module.exports = {
     async indexDisciplinas(request, response){
@@ -21,9 +22,10 @@ module.exports = {
     },
 
     async inscreverAlunoDisciplina(request, response){
-        const {idAlunoDefDisciplina, alunoID , ofertaID} = request.body
+        const {idAlunoDefDisciplina, alunoID , ofertaID, token} = request.body
         console.log(idAlunoDefDisciplina)
         let iBiblioteca = new IBiblioteca()
+        let iGrupos = new IGrupos()
 
         // Verifica se o aluno existe
 
@@ -31,6 +33,7 @@ module.exports = {
 
         // Verifica pendencia com a biblioteca
         let pendencia = null
+        let gruposAcad = null
         /*try{
             pendencia = await apiBiblioteca.get(`pessoa/pendencias/${alunoID}`)
         }catch(err){
@@ -42,10 +45,17 @@ module.exports = {
         }catch(err){
             return response.json({"status":'Não deu pra recuperar pendencia de aluno'})
         }  
-        console.log(pendencia.data)
+
         if(pendencia.data === true){
             return response.json({"status":"Aluno não pode se inscrever em disciplinas com pendencia na biblioteca"})
         }
+
+        try{
+            gruposAcad = await iGrupos.getGrupos(alunoID, token)
+        }catch(err){
+            return response.json({"status":'Não deu pra recuperar grupos do aluno'})
+        }
+
         
         const [id] = await connection('alunosDefDisciplina').insert({
             id:idAlunoDefDisciplina,
