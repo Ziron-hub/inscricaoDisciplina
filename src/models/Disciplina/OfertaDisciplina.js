@@ -56,6 +56,14 @@ class OfertaDisciplina{
         return this.#numVagas - this.#deferidos.length
     }
 
+    consultarAlunosDef(idDisciplina){
+        return [
+            { nome: 'jason'},
+            { nome: 'carlos'},
+            { nome: 'joana'} 
+        ]
+    }
+
 
 }
 module.exports = OfertaDisciplina;
