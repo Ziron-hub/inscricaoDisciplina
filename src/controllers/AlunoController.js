@@ -2,6 +2,7 @@ const connection = require('../database/connection')
 const IBiblioteca = require('../IBiblioteca')
 const IGrupos = require('../IGrupos')
 
+
 module.exports = {
     async indexDisciplinas(request, response){
         const { id = 1 } = request.params;
@@ -22,8 +23,8 @@ module.exports = {
     },
 
     async inscreverAlunoDisciplina(request, response){
-        const {idAlunoDefDisciplina, alunoID , ofertaID, token} = request.body
-        console.log(idAlunoDefDisciplina)
+        const {idAlunoDefDisciplina, alunoID , ofertaID} = request.body
+
         let iBiblioteca = new IBiblioteca()
         let iGrupos = new IGrupos()
 
