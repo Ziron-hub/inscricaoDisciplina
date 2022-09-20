@@ -1,5 +1,7 @@
 const Usuario = require('../models/Usuario/Usuario') 
-connection = require('../database/connection')
+const Disciplina = require('../models/Disciplina/Disciplina')
+const connection = require('../database/connection')
+const { json } = require('express')
 
 module.exports = {
     async create(request, response){
@@ -14,5 +16,14 @@ module.exports = {
 
         })
         return response.json({"teste":"deu"})
+    },
+    
+    async consultarNumVagasDisc(request, response){
+        const {id} = request.params;
+
+        const disciplina = new Disciplina();
+        const numeroDeVagas = await disciplina.consultarNumVagasDisc(id)
+
+        return response.json(numeroDeVagas)
     }
 }
