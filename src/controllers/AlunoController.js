@@ -23,7 +23,7 @@ module.exports = {
     },
 
     async inscreverAlunoDisciplina(request, response){
-        const {idAlunoDefDisciplina, alunoID , ofertaID} = request.body
+        const {idAlunoDefDisciplina, alunoID , ofertaID, token} = request.body
 
         let iBiblioteca = new IBiblioteca()
         let iGrupos = new IGrupos()
@@ -35,11 +35,6 @@ module.exports = {
         // Verifica pendencia com a biblioteca
         let pendencia = null
         let gruposAcad = null
-        /*try{
-            pendencia = await apiBiblioteca.get(`pessoa/pendencias/${alunoID}`)
-        }catch(err){
-            return response.json({"status":'Não deu pra recuperar pendencia de aluno'})
-        }  */
 
         try{
             pendencia = await iBiblioteca.pendenciaBibiliotecaAluno(alunoID)
@@ -47,12 +42,13 @@ module.exports = {
             return response.json({"status":'Não deu pra recuperar pendencia de aluno'})
         }  
 
-        if(pendencia.data === true){
+        /*if(pendencia.data === true){
             return response.json({"status":"Aluno não pode se inscrever em disciplinas com pendencia na biblioteca"})
-        }
+        }*/
 
         try{
             gruposAcad = await iGrupos.getGrupos(alunoID, token)
+            console.log(gruposAcad)
         }catch(err){
             return response.json({"status":'Não deu pra recuperar grupos do aluno'})
         }
