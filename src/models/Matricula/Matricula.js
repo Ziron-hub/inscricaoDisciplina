@@ -97,30 +97,37 @@ class Matricula {
     }
 
     trancarMatricula() {
+        notificarObservadoresEstado()
         this.estadoMatricula.trancarMatricula(this);
     }
 
     reativarMatricula() {
+        notificarObservadoresEstado()
         this.estadoMatricula.reativarMatricula(this);
     }
 
     suspenderMatricula() {
+        notificarObservadoresEstado()
         this.estadoMatricula.suspenderMatricula(this);
     }
 
     concluirMatricula() {
+        notificarObservadoresEstado()
         this.estadoMatricula.concluirMatricula(this);
     }
 
     desativarMatricula() {
+        notificarObservadoresEstado()
         this.estadoMatricula.desativarMatricula(this);
     }
 
     afastarMatricula() {
+        notificarObservadoresEstado()
         this.estadoMatricula.afastarMatricula(this);
     }
 
     jubilarMatricula() {
+        notificarObservadoresEstado()
         this.estadoMatricula.jubilarMatricula(this);
     }
 }
