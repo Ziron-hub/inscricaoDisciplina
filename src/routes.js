@@ -16,4 +16,6 @@ routes.get('/disciplina/vagas/:id', DisciplinaController.consultarNumVagasDisc)
 
 routes.get('/disciplina/:id/alunosDeferidos', DisciplinaController.consultarAlunosDef)
 
+routes.get('/', (_req, res) => res.send('OK - Funcionando!?'))
+
 module.exports = routes

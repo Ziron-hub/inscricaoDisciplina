@@ -15,6 +15,7 @@ module.exports = {
         return response.json(disciplinas['count(*)'])
     },
 
+
     async inscreverAlunoDisciplina(request, response){
         const {idAlunoDefDisciplina, alunoID , ofertaID, token} = request.body
 
