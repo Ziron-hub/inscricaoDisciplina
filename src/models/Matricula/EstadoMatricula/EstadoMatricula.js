@@ -14,7 +14,7 @@ class EstadoMatricula {
         return this.EstadoAtual.valor;
     }
 
-    setEstadoAtual(estado) {
+    set EstadoAtual(estado) {
         this.EstadoAtual = estado;
     }
 
