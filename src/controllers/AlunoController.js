@@ -1,23 +1,16 @@
 const connection = require('../database/connection')
 const IBiblioteca = require('../IBiblioteca')
 const IGrupos = require('../IGrupos')
-const Aluno = require('../models/Usuario/Aluno')
+const AlunoFactory = require('../models/Usuario/AlunoFactory')
 
 module.exports = {
     async indexDisciplinas(request, response){
         const { id = 1 } = request.params;
         
-        const matricula_id = await connection('aluno')
-        .where('id', id)
-        .select('matricula_id');
+        const aluno = AlunoFactory.createUsuario()
+        
+        const disciplinas = await aluno.indexDisciplinas(id)
 
-        const periodo_id = await connection('matricula')
-        .where('id',matricula_id[0].matricula_id )
-        .select('periodo_id');
-
-        const [disciplinas] = await connection('periodo_ofertas_disciplinas')
-        .where('periodo_id', periodo_id[0].periodo_id)
-        .count();
 
         return response.json(disciplinas['count(*)'])
     },

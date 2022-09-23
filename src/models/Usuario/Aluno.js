@@ -20,6 +20,22 @@ class Aluno extends Usuario {
         
     }
 
+    async indexDisciplinas(idAluno){
+        const matricula_id = await connection('aluno')
+        .where('id', idAluno)
+        .select('matricula_id');
+
+        const periodo_id = await connection('matricula')
+        .where('id',matricula_id[0].matricula_id )
+        .select('periodo_id');
+
+        const [disciplinas] = await connection('periodo_ofertas_disciplinas')
+        .where('periodo_id', periodo_id[0].periodo_id)
+        .count();
+
+        return disciplinas
+    }
+
 }
 
 module.exports = Aluno;
